@@ -1,0 +1,524 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Create Your Portfolio | Portfolio Builder</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg: #090d19;
+            --surface: #111a2e;
+            --surface2: #172238;
+            --purple: #a78bfa;
+            --cyan: #67e8f9;
+            --text: #f4f5ff;
+            --muted: #9aa8bd;
+            --border: rgba(167,139,250,.2);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background:
+                radial-gradient(circle at 10% 10%, rgba(124,58,237,.14), transparent 30%),
+                radial-gradient(circle at 90% 70%, rgba(34,211,238,.09), transparent 30%),
+                var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+            padding: 40px 18px;
+        }
+
+        .container {
+            max-width: 850px;
+            margin: auto;
+        }
+
+        .topbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 35px;
+        }
+
+        .logo {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--purple);
+        }
+
+        .back-link {
+            color: var(--cyan);
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .back-link:hover {
+            color: var(--purple);
+        }
+
+        .heading {
+            text-align: center;
+            margin-bottom: 35px;
+        }
+
+        .eyebrow {
+            display: inline-block;
+            color: var(--cyan);
+            background: rgba(103,232,249,.08);
+            border: 1px solid rgba(103,232,249,.2);
+            border-radius: 30px;
+            padding: 8px 16px;
+            font-size: 12px;
+            letter-spacing: 2px;
+            margin-bottom: 18px;
+        }
+
+        h1 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(30px, 5vw, 43px);
+            margin-bottom: 12px;
+        }
+
+        h1 span {
+            color: var(--purple);
+        }
+
+        .subtitle {
+            color: var(--muted);
+            max-width: 580px;
+            margin: auto;
+            line-height: 1.7;
+        }
+
+        .form-card {
+            background: rgba(17,26,46,.94);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 35px;
+            box-shadow: 0 20px 70px rgba(0,0,0,.25);
+        }
+
+        .form-section {
+            margin-bottom: 35px;
+        }
+
+        .section-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 20px;
+            color: var(--purple);
+            padding-bottom: 13px;
+            margin-bottom: 20px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .section-title span {
+            color: var(--cyan);
+            margin-right: 8px;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 20px;
+        }
+
+        .field {
+            margin-bottom: 18px;
+            min-width: 0;
+        }
+
+        .field.full {
+            grid-column: 1 / -1;
+        }
+
+        label {
+            display: block;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 9px;
+            color: #d9d8f5;
+        }
+
+        input:not([type="file"]),
+        textarea {
+            display: block;
+            width: 100%;
+            background: #0b1222;
+            color: var(--text);
+            border: 1px solid #303d59;
+            border-radius: 10px;
+            padding: 14px 15px;
+            font-family: inherit;
+            font-size: 14px;
+            transition: .3s;
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 105px;
+        }
+
+        input:focus,
+        textarea:focus {
+            outline: none;
+            border-color: var(--purple);
+            box-shadow: 0 0 0 3px rgba(167,139,250,.12);
+        }
+
+        input::placeholder,
+        textarea::placeholder {
+            color: #71809a;
+        }
+
+        input[type="file"] {
+            width: 100%;
+            padding: 15px;
+            background: #0b1222;
+            border: 1px dashed #596681;
+            border-radius: 10px;
+            color: var(--muted);
+            cursor: pointer;
+        }
+
+        input[type="file"]::file-selector-button {
+            background: #252447;
+            color: var(--cyan);
+            border: none;
+            padding: 9px 13px;
+            border-radius: 7px;
+            margin-right: 12px;
+            cursor: pointer;
+        }
+
+        .help {
+            color: var(--muted);
+            font-size: 12px;
+            margin-top: 7px;
+            line-height: 1.6;
+        }
+
+        .optional {
+            color: var(--cyan);
+            font-size: 11px;
+            font-weight: 500;
+        }
+
+        .errorlist {
+            list-style: none;
+            color: #fca5a5;
+            font-size: 12px;
+            margin-top: 7px;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 16px;
+            border: none;
+            border-radius: 11px;
+            color: #080d19;
+            background: linear-gradient(110deg, var(--purple), var(--cyan));
+            font-family: inherit;
+            font-size: 16px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: .3s;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(103,232,249,.17);
+        }
+
+        .bottom-note {
+            text-align: center;
+            margin-top: 23px;
+            color: var(--muted);
+            font-size: 13px;
+        }
+
+        .photo-preview {
+            display: none;
+            width: 110px;
+            height: 110px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 3px solid var(--purple);
+            margin-top: 15px;
+        }
+
+        @media(max-width: 600px) {
+            body {
+                padding: 22px 12px;
+            }
+
+            .form-card {
+                padding: 22px 17px;
+            }
+
+            .form-grid {
+                grid-template-columns: 1fr;
+                gap: 0;
+            }
+
+            .topbar {
+                margin-bottom: 28px;
+            }
+
+            .logo {
+                font-size: 19px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="topbar">
+        <div class="logo">&lt;/&gt; Portfolio Builder</div>
+        <a href="/" class="back-link">← Home</a>
+    </div>
+
+    <header class="heading">
+        <div class="eyebrow">CREATE YOUR DIGITAL IDENTITY</div>
+
+        <h1>Build Your <span>Portfolio</span></h1>
+
+        <p class="subtitle">
+            Share your skills, education and projects.
+            Create a professional portfolio website with your own unique link.
+        </p>
+    </header>
+
+    <div class="form-card">
+
+        <!-- IMPORTANT: enctype enables photo uploads -->
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+
+            <!-- PERSONAL INFORMATION -->
+            <div class="form-section">
+
+                <h2 class="section-title">
+                    <span>01 /</span> Personal Information
+                </h2>
+
+                <div class="form-grid">
+
+                    <div class="field">
+                        <label>{{ form.full_name.label }}</label>
+                        {{ form.full_name }}
+                        {{ form.full_name.errors }}
+                    </div>
+
+                    <div class="field">
+                        <label>{{ form.professional_title.label }}</label>
+                        {{ form.professional_title }}
+                        {{ form.professional_title.errors }}
+                    </div>
+
+                    <!-- PROFILE PHOTO UPLOAD -->
+                    <div class="field full">
+                        <label>
+                            {{ form.profile_photo.label }}
+                            <span class="optional">OPTIONAL</span>
+                        </label>
+
+                        {{ form.profile_photo }}
+
+                        <p class="help">
+                            Upload your professional profile photo.
+                            Supported formats: JPG, PNG and WebP.
+                            You can leave this empty.
+                        </p>
+
+                        <img
+                            id="photoPreview"
+                            class="photo-preview"
+                            alt="Profile photo preview"
+                        >
+
+                        {{ form.profile_photo.errors }}
+                    </div>
+
+                    <div class="field">
+                        <label>{{ form.email.label }}</label>
+                        {{ form.email }}
+                        {{ form.email.errors }}
+                    </div>
+
+                    <div class="field">
+                        <label>
+                            {{ form.phone.label }}
+                            <span class="optional">OPTIONAL</span>
+                        </label>
+                        {{ form.phone }}
+                        {{ form.phone.errors }}
+                    </div>
+
+                    <div class="field full">
+                        <label>{{ form.description.label }}</label>
+                        {{ form.description }}
+                        {{ form.description.errors }}
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- TECHNICAL SKILLS -->
+            <div class="form-section">
+
+                <h2 class="section-title">
+                    <span>02 /</span> Technical Skills
+                </h2>
+
+                <div class="field">
+                    <label>{{ form.skills.label }}</label>
+                    {{ form.skills }}
+
+                    <p class="help">
+                        Separate skills using commas.
+                        Example: Python, Django, Flask, SQL, HTML, CSS, JavaScript.
+                    </p>
+
+                    {{ form.skills.errors }}
+                </div>
+
+            </div>
+
+            <!-- EDUCATION -->
+            <div class="form-section">
+
+                <h2 class="section-title">
+                    <span>03 /</span> Education
+                </h2>
+
+                <div class="field">
+                    <label>{{ form.education.label }}</label>
+                    {{ form.education }}
+
+                    <p class="help">
+                        Mention your degree, college, university and graduation year.
+                    </p>
+
+                    {{ form.education.errors }}
+                </div>
+
+            </div>
+
+            <!-- PROJECTS -->
+            <div class="form-section">
+
+                <h2 class="section-title">
+                    <span>04 /</span> Projects & Experience
+                </h2>
+
+                <div class="field">
+                    <label>{{ form.projects.label }}</label>
+                    {{ form.projects }}
+
+                    <p class="help">
+                        Add your project names, technologies and short descriptions.
+                    </p>
+
+                    {{ form.projects.errors }}
+                </div>
+
+            </div>
+
+            <!-- SOCIAL LINKS -->
+            <div class="form-section">
+
+                <h2 class="section-title">
+                    <span>05 /</span> Social Profiles
+                </h2>
+
+                <div class="form-grid">
+
+                    <div class="field">
+                        <label>
+                            {{ form.github.label }}
+                            <span class="optional">OPTIONAL</span>
+                        </label>
+                        {{ form.github }}
+                        {{ form.github.errors }}
+                    </div>
+
+                    <div class="field">
+                        <label>
+                            {{ form.linkedin.label }}
+                            <span class="optional">OPTIONAL</span>
+                        </label>
+                        {{ form.linkedin }}
+                        {{ form.linkedin.errors }}
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- FORM ERRORS -->
+            {% if form.non_field_errors %}
+                <div class="errorlist">
+                    {{ form.non_field_errors }}
+                </div>
+            {% endif %}
+
+            <!-- SUBMIT BUTTON -->
+            <button type="submit" class="submit-btn">
+                Generate My Portfolio →
+            </button>
+
+        </form>
+
+    </div>
+
+    <p class="bottom-note">
+        Your details will be saved in your portfolio database.
+    </p>
+
+</div>
+
+<script>
+    // Preview selected profile photo before uploading
+    const photoInput = document.getElementById("id_profile_photo");
+    const photoPreview = document.getElementById("photoPreview");
+
+    if (photoInput) {
+        photoInput.addEventListener("change", function () {
+            const file = this.files[0];
+
+            if (file) {
+                if (!file.type.startsWith("image/")) {
+                    alert("Please select a valid image file.");
+                    this.value = "";
+                    photoPreview.style.display = "none";
+                    return;
+                }
+
+                photoPreview.src = URL.createObjectURL(file);
+                photoPreview.style.display = "block";
+            } else {
+                photoPreview.style.display = "none";
+            }
+        });
+    }
+</script>
+
+</body>
+</html>

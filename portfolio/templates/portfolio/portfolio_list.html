@@ -1,0 +1,614 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>All Portfolios | Portfolio Builder</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: #090d19;
+            color: #f4f5ff;
+            min-height: 100vh;
+        }
+
+        /* Navbar */
+        nav {
+            min-height: 75px;
+            padding: 15px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #11182a;
+            border-bottom: 1px solid #26334c;
+        }
+
+        .logo {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 23px;
+            font-weight: 700;
+            color: #a78bfa;
+        }
+
+        nav a {
+            color: #f4f5ff;
+            text-decoration: none;
+            margin-left: 22px;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: #67e8f9;
+        }
+
+        /* Main Container */
+        .container {
+            width: 85%;
+            max-width: 1200px;
+            margin: 60px auto;
+        }
+
+        /* Heading */
+        .heading {
+            text-align: center;
+            margin-bottom: 35px;
+        }
+
+        .heading h1 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 38px;
+            margin-bottom: 12px;
+        }
+
+        .heading h1 span {
+            color: #a78bfa;
+        }
+
+        .heading p {
+            color: #9aa8bd;
+            font-size: 15px;
+        }
+
+        /* Create Button */
+        .create-btn {
+            display: inline-block;
+            margin-top: 22px;
+            padding: 12px 23px;
+            background: linear-gradient(135deg, #8b5cf6, #6366f1);
+            color: white;
+            border-radius: 9px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .create-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 22px #8b5cf644;
+        }
+
+        /* Search Section */
+        .search-container {
+            max-width: 600px;
+            margin: 0 auto 40px;
+        }
+
+        .search-form {
+            display: flex;
+            gap: 10px;
+        }
+
+        .search-input {
+            flex: 1;
+            min-width: 0;
+            padding: 14px 16px;
+            border-radius: 9px;
+            border: 1px solid #344663;
+            background: #11182a;
+            color: #f4f5ff;
+            outline: none;
+            font-size: 14px;
+            font-family: inherit;
+        }
+
+        .search-input:focus {
+            border-color: #a78bfa;
+            box-shadow: 0 0 0 3px #a78bfa22;
+        }
+
+        .search-input::placeholder {
+            color: #8492a9;
+        }
+
+        .search-btn {
+            padding: 12px 22px;
+            border: none;
+            border-radius: 9px;
+            background: #8b5cf6;
+            color: white;
+            font-weight: 600;
+            font-size: 14px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .search-btn:hover {
+            background: #7c3aed;
+        }
+
+        .clear-search {
+            display: block;
+            text-align: center;
+            color: #67e8f9;
+            text-decoration: none;
+            font-size: 13px;
+            margin-top: 12px;
+        }
+
+        .clear-search:hover {
+            text-decoration: underline;
+        }
+
+        /* Results Info */
+        .results-info {
+            color: #9aa8bd;
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+
+        /* Portfolio Grid */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(
+                auto-fit,
+                minmax(270px, 1fr)
+            );
+            gap: 25px;
+        }
+
+        /* Portfolio Card */
+        .portfolio-card {
+            background: #11182a;
+            border: 1px solid #26334c;
+            border-radius: 16px;
+            padding: 28px;
+            text-align: center;
+            transition: 0.3s;
+        }
+
+        .portfolio-card:hover {
+            transform: translateY(-6px);
+            border-color: #a78bfa;
+            box-shadow: 0 12px 30px #00000035;
+        }
+
+        .profile-image {
+            width: 105px;
+            height: 105px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #a78bfa;
+            margin-bottom: 18px;
+        }
+
+        .profile-placeholder {
+            width: 105px;
+            height: 105px;
+            border-radius: 50%;
+            margin: 0 auto 18px;
+            background: #202c45;
+            color: #67e8f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 35px;
+            font-weight: 700;
+        }
+
+        .portfolio-card h2 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 21px;
+            margin-bottom: 8px;
+            overflow-wrap: anywhere;
+        }
+
+        .job-title {
+            color: #67e8f9;
+            font-size: 14px;
+            margin-bottom: 16px;
+        }
+
+        .email {
+            color: #9aa8bd;
+            font-size: 13px;
+            margin-bottom: 20px;
+            overflow-wrap: anywhere;
+        }
+
+        /* View Button */
+        .view-btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background: #202c45;
+            color: #67e8f9;
+            text-decoration: none;
+            border: 1px solid #344663;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .view-btn:hover {
+            background: #a78bfa;
+            color: white;
+            border-color: #a78bfa;
+        }
+
+        /* Pagination */
+        .pagination {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            margin: 45px 0;
+            flex-wrap: wrap;
+        }
+
+        .page-info {
+            color: #9aa8bd;
+            font-size: 14px;
+        }
+
+        .page-btn {
+            display: inline-block;
+            padding: 10px 18px;
+            background: #202c45;
+            color: #67e8f9;
+            text-decoration: none;
+            border: 1px solid #344663;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .page-btn:hover {
+            background: #a78bfa;
+            color: white;
+            border-color: #a78bfa;
+        }
+
+        /* Empty State */
+        .empty-state {
+            text-align: center;
+            padding: 55px 20px;
+            background: #11182a;
+            border: 1px solid #26334c;
+            border-radius: 16px;
+        }
+
+        .empty-state h2 {
+            margin-bottom: 12px;
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        .empty-state p {
+            color: #9aa8bd;
+            margin-bottom: 15px;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 25px;
+            color: #9aa8bd;
+            border-top: 1px solid #26334c;
+            font-size: 13px;
+            margin-top: 50px;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 600px) {
+
+            nav {
+                padding: 15px 5%;
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav a {
+                margin: 0 8px;
+                font-size: 12px;
+            }
+
+            .logo {
+                font-size: 21px;
+            }
+
+            .container {
+                width: 90%;
+                margin: 40px auto;
+            }
+
+            .heading h1 {
+                font-size: 29px;
+            }
+
+            .heading p {
+                font-size: 13px;
+            }
+
+            .search-form {
+                flex-direction: column;
+            }
+
+            .search-btn {
+                width: 100%;
+            }
+
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .portfolio-card {
+                padding: 25px;
+            }
+
+            .pagination {
+                gap: 10px;
+            }
+
+            .page-btn {
+                padding: 9px 13px;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav>
+
+        <div class="logo">
+            Portfolio Builder.
+        </div>
+
+        <div>
+            <a href="{% url 'portfolio_builder' %}">
+                Create Portfolio
+            </a>
+
+            <a href="{% url 'portfolio_list' %}">
+                All Portfolios
+            </a>
+        </div>
+
+    </nav>
+
+
+    <!-- Main Content -->
+    <main class="container">
+
+        <!-- Heading -->
+        <section class="heading">
+
+            <h1>
+                Explore <span>Portfolios</span>
+            </h1>
+
+            <p>
+                Discover professional profiles and developer portfolios.
+            </p>
+
+            <a
+                href="{% url 'portfolio_builder' %}"
+                class="create-btn"
+            >
+                + Create Your Portfolio
+            </a>
+
+        </section>
+
+
+        <!-- Search Section -->
+        <section class="search-container">
+
+            <form
+                method="GET"
+                action="{% url 'portfolio_list' %}"
+                class="search-form"
+            >
+
+                <input
+                    type="text"
+                    name="search"
+                    value="{{ search_query }}"
+                    placeholder="Search by name, title or skill..."
+                    class="search-input"
+                >
+
+                <button type="submit" class="search-btn">
+                    Search
+                </button>
+
+            </form>
+
+            {% if search_query %}
+                <a
+                    href="{% url 'portfolio_list' %}"
+                    class="clear-search"
+                >
+                    Clear Search
+                </a>
+            {% endif %}
+
+        </section>
+
+
+        <!-- Portfolio Results -->
+        {% if profiles %}
+
+            <p class="results-info">
+                Showing {{ page_obj.start_index }}–{{ page_obj.end_index }}
+                of {{ page_obj.paginator.count }} portfolios
+            </p>
+
+            <section class="portfolio-grid">
+
+                {% for profile in profiles %}
+
+                    <article class="portfolio-card">
+
+                        <!-- Profile Photo -->
+                        {% if profile.profile_photo %}
+
+                            <img
+                                src="{{ profile.profile_photo.url }}"
+                                alt="{{ profile.full_name }}"
+                                class="profile-image"
+                            >
+
+                        {% else %}
+
+                            <div class="profile-placeholder">
+                                {{ profile.full_name|first|upper }}
+                            </div>
+
+                        {% endif %}
+
+
+                        <!-- Profile Information -->
+                        <h2>
+                            {{ profile.full_name }}
+                        </h2>
+
+                        <p class="job-title">
+                            {{ profile.professional_title }}
+                        </p>
+
+                        <p class="email">
+                            {{ profile.email }}
+                        </p>
+
+
+                        <!-- View Portfolio -->
+                        <a
+                            href="{% url 'portfolio_profile' profile.slug %}"
+                            class="view-btn"
+                        >
+                            View Portfolio →
+                        </a>
+
+                    </article>
+
+                {% endfor %}
+
+            </section>
+
+
+            <!-- Pagination -->
+            {% if page_obj.has_other_pages %}
+
+                <div class="pagination">
+
+                    {% if page_obj.has_previous %}
+
+                        <a
+                            href="?search={{ search_query|urlencode }}&page={{ page_obj.previous_page_number }}"
+                            class="page-btn"
+                        >
+                            ← Previous
+                        </a>
+
+                    {% endif %}
+
+
+                    <span class="page-info">
+                        Page {{ page_obj.number }}
+                        of {{ page_obj.paginator.num_pages }}
+                    </span>
+
+
+                    {% if page_obj.has_next %}
+
+                        <a
+                            href="?search={{ search_query|urlencode }}&page={{ page_obj.next_page_number }}"
+                            class="page-btn"
+                        >
+                            Next →
+                        </a>
+
+                    {% endif %}
+
+                </div>
+
+            {% endif %}
+
+
+        {% else %}
+
+            <!-- Empty State -->
+            <div class="empty-state">
+
+                {% if search_query %}
+
+                    <h2>No Matching Portfolios Found</h2>
+
+                    <p>
+                        No portfolios match "{{ search_query }}".
+                        Try another name, title or skill.
+                    </p>
+
+                    <a
+                        href="{% url 'portfolio_list' %}"
+                        class="view-btn"
+                    >
+                        View All Portfolios
+                    </a>
+
+                {% else %}
+
+                    <h2>No Portfolios Yet</h2>
+
+                    <p>
+                        Be the first to create a professional portfolio!
+                    </p>
+
+                    <a
+                        href="{% url 'portfolio_builder' %}"
+                        class="create-btn"
+                    >
+                        Create Portfolio
+                    </a>
+
+                {% endif %}
+
+            </div>
+
+        {% endif %}
+
+    </main>
+
+
+    <!-- Footer -->
+    <footer>
+        © 2026 Portfolio Builder. All Rights Reserved.
+    </footer>
+
+</body>
+</html>

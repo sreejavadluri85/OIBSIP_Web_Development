@@ -1,0 +1,757 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>{{ profile.full_name }} | Portfolio</title>
+    <meta name="description" content="{{ profile.description|truncatewords:25 }}">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg: #090d19;
+            --surface: #11182a;
+            --surface-light: #172238;
+            --text: #f4f5ff;
+            --muted: #9aa8bd;
+            --purple: #a78bfa;
+            --cyan: #67e8f9;
+            --border: rgba(167, 139, 250, .16);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 90px;
+        }
+
+        body {
+            background: var(--bg);
+            color: var(--text);
+            font-family: 'DM Sans', sans-serif;
+            line-height: 1.7;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .container {
+            width: min(1120px, 90%);
+            margin: auto;
+        }
+
+        /* NAVBAR */
+
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(9, 13, 25, .92);
+            backdrop-filter: blur(18px);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .nav-inner {
+            min-height: 76px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 23px;
+            font-weight: 700;
+            color: var(--purple);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 28px;
+        }
+
+        .nav-links a {
+            color: var(--muted);
+            font-size: 14px;
+            transition: .3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--cyan);
+        }
+
+        /* HERO */
+
+        .hero {
+            min-height: 590px;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            background:
+                radial-gradient(ellipse at 80% 20%, rgba(124, 58, 237, .17), transparent 40%),
+                radial-gradient(ellipse at 10% 90%, rgba(34, 211, 238, .10), transparent 35%);
+        }
+
+        .hero-layout {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 45px;
+        }
+
+        .hero-content {
+            padding: 85px 0;
+            max-width: 800px;
+            flex: 1;
+            animation: fadeUp .9s ease both;
+        }
+
+        .availability {
+            display: inline-flex;
+            align-items: center;
+            gap: 9px;
+            padding: 8px 15px;
+            border: 1px solid var(--border);
+            border-radius: 30px;
+            background: rgba(167, 139, 250, .08);
+            color: var(--cyan);
+            font-size: 13px;
+            margin-bottom: 28px;
+        }
+
+        .dot {
+            width: 8px;
+            height: 8px;
+            background: #4ade80;
+            border-radius: 50%;
+            box-shadow: 0 0 12px #4ade80;
+        }
+
+        .hero h1 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(42px, 7vw, 76px);
+            line-height: 1.1;
+            letter-spacing: -3px;
+        }
+
+        .hero h1 span {
+            color: var(--purple);
+        }
+
+        .hero h2 {
+            color: var(--cyan);
+            font-size: clamp(19px, 3vw, 27px);
+            font-weight: 500;
+            margin-top: 17px;
+        }
+
+        .hero-description {
+            max-width: 650px;
+            color: var(--muted);
+            font-size: 17px;
+            margin-top: 20px;
+        }
+
+        /* PROFILE PHOTO */
+
+        .profile-photo-wrapper {
+            flex-shrink: 0;
+            width: 270px;
+            height: 270px;
+            border-radius: 50%;
+            padding: 7px;
+            background: linear-gradient(135deg, var(--purple), var(--cyan));
+            box-shadow: 0 0 45px rgba(167, 139, 250, .2);
+            animation: photoFloat 4s ease-in-out infinite;
+        }
+
+        .profile-photo {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 5px solid var(--bg);
+            display: block;
+        }
+
+        @keyframes photoFloat {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .hero-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+            margin-top: 32px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 13px 23px;
+            border-radius: 9px;
+            font-weight: 700;
+            font-size: 14px;
+            font-family: inherit;
+            transition: .3s;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            color: #090d19;
+            background: linear-gradient(110deg, var(--purple), var(--cyan));
+            border: none;
+        }
+
+        .btn-outline {
+            color: var(--text);
+            border: 1px solid var(--border);
+            background: var(--surface);
+        }
+
+        .btn-edit {
+            color: var(--cyan);
+            background: var(--surface);
+            border: 1px solid var(--border);
+        }
+
+        .btn-delete {
+            color: #fca5a5;
+            background: transparent;
+            border: 1px solid #f87171;
+        }
+
+        .btn:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 30px rgba(103, 232, 249, .12);
+        }
+
+        .btn-edit:hover {
+            background: var(--purple);
+            color: var(--bg);
+        }
+
+        .btn-delete:hover {
+            background: rgba(248, 113, 113, .13);
+            border-color: #fca5a5;
+        }
+
+        /* SECTIONS */
+
+        .section {
+            padding: 85px 0;
+        }
+
+        .section-heading {
+            margin-bottom: 32px;
+        }
+
+        .eyebrow {
+            color: var(--cyan);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 12px;
+            font-weight: 700;
+        }
+
+        .section-heading h2 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 36px;
+            margin-top: 8px;
+        }
+
+        .section-heading h2 span,
+        .contact-card h2 span {
+            color: var(--purple);
+        }
+
+        .card {
+            background: linear-gradient(145deg, var(--surface), #0e1525);
+            border: 1px solid var(--border);
+            border-radius: 17px;
+            padding: 30px;
+            transition: .3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(103, 232, 249, .4);
+        }
+
+        .about-text {
+            color: var(--muted);
+            font-size: 16px;
+        }
+
+        /* SKILLS */
+
+        .skills-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+        }
+
+        .skill {
+            padding: 12px 20px;
+            border-radius: 10px;
+            color: #d9d1ff;
+            background: rgba(167, 139, 250, .10);
+            border: 1px solid var(--border);
+            transition: .3s;
+        }
+
+        .skill:hover {
+            background: rgba(103, 232, 249, .12);
+            color: var(--cyan);
+            transform: translateY(-4px);
+        }
+
+        /* EDUCATION & PROJECTS */
+
+        .info-card {
+            margin-bottom: 18px;
+        }
+
+        .info-card h3 {
+            color: var(--cyan);
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 20px;
+            margin-bottom: 12px;
+        }
+
+        .info-card p {
+            color: var(--muted);
+        }
+
+        /* CONTACT */
+
+        .contact-card {
+            text-align: center;
+            padding: 50px 25px;
+            background:
+                radial-gradient(circle at top, rgba(139, 92, 246, .16), transparent 65%),
+                var(--surface);
+        }
+
+        .contact-card p {
+            color: var(--muted);
+            margin: 10px 0;
+        }
+
+        .contact-card h2 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 34px;
+            margin-top: 12px;
+        }
+
+        .contact-email {
+            color: var(--cyan);
+            font-weight: 600;
+        }
+
+        .social-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 14px;
+            margin-top: 25px;
+        }
+
+        .social-links a {
+            color: var(--purple);
+            border: 1px solid var(--border);
+            padding: 10px 20px;
+            border-radius: 8px;
+            transition: .3s;
+        }
+
+        .social-links a:hover {
+            background: var(--purple);
+            color: #090d19;
+        }
+
+        /* FOOTER */
+
+        footer {
+            border-top: 1px solid var(--border);
+            padding: 28px 0;
+            text-align: center;
+            color: var(--muted);
+            font-size: 13px;
+        }
+
+        /* ANIMATION */
+
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(25px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* MOBILE RESPONSIVENESS */
+
+        @media(max-width: 850px) {
+            .hero-layout {
+                flex-direction: column-reverse;
+                text-align: center;
+                gap: 15px;
+            }
+
+            .hero-content {
+                padding: 35px 0 65px;
+            }
+
+            .hero-description {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .hero-actions {
+                justify-content: center;
+            }
+
+            .profile-photo-wrapper {
+                width: 210px;
+                height: 210px;
+                margin-top: 45px;
+            }
+        }
+
+        @media(max-width: 700px) {
+            .nav-inner {
+                flex-direction: column;
+                padding: 15px 0;
+                gap: 12px;
+            }
+
+            .nav-links {
+                gap: 14px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .hero {
+                min-height: 500px;
+            }
+
+            .hero h1 {
+                letter-spacing: -1.5px;
+            }
+
+            .hero-description {
+                font-size: 15px;
+            }
+
+            .section {
+                padding: 60px 0;
+            }
+
+            .section-heading h2 {
+                font-size: 29px;
+            }
+
+            .card {
+                padding: 22px;
+            }
+
+            .hero-actions {
+                gap: 10px;
+            }
+
+            .btn {
+                padding: 12px 16px;
+                font-size: 13px;
+            }
+        }
+
+        @media(max-width: 380px) {
+            .nav-links {
+                gap: 10px;
+            }
+
+            .nav-links a {
+                font-size: 12px;
+            }
+
+            .hero h1 {
+                font-size: 38px;
+            }
+
+            .profile-photo-wrapper {
+                width: 175px;
+                height: 175px;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+
+<nav class="navbar">
+    <div class="container nav-inner">
+
+        <a href="#" class="logo">
+            {{ profile.full_name }}
+        </a>
+
+        <div class="nav-links">
+            <a href="#about">About</a>
+            <a href="#skills">Skills</a>
+            <a href="#education">Education</a>
+            <a href="#projects">Projects</a>
+            <a href="#contact">Contact</a>
+        </div>
+
+    </div>
+</nav>
+
+<!-- HERO SECTION -->
+
+<header class="hero">
+    <div class="container hero-layout">
+
+        <div class="hero-content">
+
+            <div class="availability">
+                <span class="dot"></span>
+                PERSONAL PORTFOLIO
+            </div>
+
+            <h1>
+                Hello, I'm <span>{{ profile.full_name }}</span>
+            </h1>
+
+            <h2>{{ profile.professional_title }}</h2>
+
+            <p class="hero-description">
+                {{ profile.description }}
+            </p>
+
+            <div class="hero-actions">
+
+                <a href="#projects" class="btn btn-primary">
+                    Explore My Work ↗
+                </a>
+
+                <a href="#contact" class="btn btn-outline">
+                    Contact Me
+                </a>
+
+                <a href="{% url 'edit_portfolio' profile.slug %}"
+                   class="btn btn-edit">
+                    ✏ Edit Portfolio
+                </a>
+
+                <!-- DELETE PORTFOLIO -->
+
+                <form
+                    method="POST"
+                    action="{% url 'delete_portfolio' profile.slug %}"
+                    onsubmit="return confirm('Are you sure you want to permanently delete this portfolio?');"
+                    style="display: inline;"
+                >
+                    {% csrf_token %}
+
+                    <button type="submit" class="btn btn-delete">
+                        🗑 Delete Portfolio
+                    </button>
+                </form>
+
+            </div>
+
+        </div>
+
+        <!-- OPTIONAL PROFILE PHOTO -->
+
+        {% if profile.profile_photo %}
+            <div class="profile-photo-wrapper">
+                <img
+                    src="{{ profile.profile_photo.url }}"
+                    alt="{{ profile.full_name }} profile photo"
+                    class="profile-photo"
+                >
+            </div>
+        {% endif %}
+
+    </div>
+</header>
+
+<main>
+
+    <!-- ABOUT SECTION -->
+
+    <section class="section" id="about">
+        <div class="container">
+
+            <div class="section-heading">
+                <p class="eyebrow">01 / Introduction</p>
+                <h2>About <span>Me</span></h2>
+            </div>
+
+            <div class="card">
+                <p class="about-text">
+                    {{ profile.description|linebreaksbr }}
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- SKILLS SECTION -->
+
+    <section class="section" id="skills">
+        <div class="container">
+
+            <div class="section-heading">
+                <p class="eyebrow">02 / Expertise</p>
+                <h2>Technical <span>Skills</span></h2>
+            </div>
+
+            <div class="skills-grid">
+
+                {% for skill in skills_list %}
+                    <span class="skill">{{ skill }}</span>
+                {% empty %}
+                    <p class="about-text">No skills added yet.</p>
+                {% endfor %}
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- EDUCATION SECTION -->
+
+    <section class="section" id="education">
+        <div class="container">
+
+            <div class="section-heading">
+                <p class="eyebrow">03 / Learning</p>
+                <h2>My <span>Education</span></h2>
+            </div>
+
+            <div class="card info-card">
+
+                <h3>Academic Background</h3>
+
+                <p>
+                    {{ profile.education|linebreaksbr }}
+                </p>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- PROJECTS SECTION -->
+
+    <section class="section" id="projects">
+        <div class="container">
+
+            <div class="section-heading">
+                <p class="eyebrow">04 / My Work</p>
+                <h2>Featured <span>Projects</span></h2>
+            </div>
+
+            <div class="card info-card">
+
+                <h3>Projects & Experience</h3>
+
+                <p>
+                    {{ profile.projects|linebreaksbr }}
+                </p>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+
+    <section class="section" id="contact">
+        <div class="container">
+
+            <div class="card contact-card">
+
+                <p class="eyebrow">05 / Get In Touch</p>
+
+                <h2>Let's Work <span>Together</span></h2>
+
+                <p>
+                    Have an opportunity or a project in mind?
+                </p>
+
+                <p>
+                    <a class="contact-email"
+                       href="mailto:{{ profile.email }}">
+                        {{ profile.email }}
+                    </a>
+                </p>
+
+                {% if profile.phone %}
+                    <p>{{ profile.phone }}</p>
+                {% endif %}
+
+                <div class="social-links">
+
+                    {% if profile.github %}
+                        <a href="{{ profile.github }}"
+                           target="_blank"
+                           rel="noopener noreferrer">
+                            GitHub ↗
+                        </a>
+                    {% endif %}
+
+                    {% if profile.linkedin %}
+                        <a href="{{ profile.linkedin }}"
+                           target="_blank"
+                           rel="noopener noreferrer">
+                            LinkedIn ↗
+                        </a>
+                    {% endif %}
+
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+</main>
+
+<!-- FOOTER -->
+
+<footer>
+    <div class="container">
+        © {{ profile.full_name }} · Designed with Django
+    </div>
+</footer>
+
+</body>
+</html>

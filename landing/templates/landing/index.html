@@ -1,0 +1,37 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="NOVA Studio creates thoughtful digital experiences for ambitious brands.">
+  <title>NOVA Studio — Make your next move</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{% static 'landing/css/style.css' %}">
+</head>
+<body>
+<header class="site-header"><a class="brand" href="#top"><span class="brand-mark">N</span>NOVA<span class="brand-light">STUDIO</span></a>
+  <button class="menu-toggle" aria-label="Open navigation" aria-expanded="false">☰</button>
+  <nav class="nav"><a href="#work">Work</a><a href="#services">Services</a><a href="#process">Process</a><a class="nav-cta" href="#contact">Let's talk <span>↗</span></a></nav>
+</header>
+<main id="top">
+<section class="hero section-wrap">
+  <div class="hero-copy"><p class="eyebrow"><span class="pulse"></span> INDEPENDENT DIGITAL CREATIVE STUDIO</p>
+    <h1>Make your next<br><em>move</em> matter.</h1>
+    <p class="hero-text">We turn ambitious ideas into memorable digital experiences. Strategy, design and technology — thoughtfully brought together.</p>
+    <div class="hero-actions"><a class="button button-dark" href="#contact">Start a project <span>↗</span></a><a class="text-link" href="#work">Explore our work <span>↓</span></a></div>
+    <div class="hero-note"><div class="avatar-stack"><i>N</i><i>✳</i><i>◎</i></div><span>Small team. Big-picture thinking.<br><b>Built for what's next.</b></span></div>
+  </div>
+  <div class="hero-art" aria-label="Abstract colorful design artwork"><div class="art-grid"></div><div class="orb orb-one"></div><div class="orb orb-two"></div><div class="art-card"><span>IDEAS IN MOTION</span><strong>Good things<br>start here.</strong><small>EST. 2024 · EVERYWHERE</small></div><div class="art-sticker">CREATE<br>WHAT'S<br>NEXT <b>↗</b></div></div>
+</section>
+<div class="ticker"><div>DESIGN WITH INTENT <span>✳</span> BUILD WITH PURPOSE <span>✳</span> MOVE PEOPLE FORWARD <span>✳</span> DESIGN WITH INTENT <span>✳</span> BUILD WITH PURPOSE <span>✳</span></div></div>
+<section class="section-wrap section" id="work"><div class="section-heading"><div><p class="eyebrow">SELECTED HIGHLIGHTS · 01</p><h2>Ideas made <em>real.</em></h2></div><p>From first sketch to final pixel, we create work that feels clear, confident and a little unexpected.</p></div>
+  <div class="work-grid"><article class="work-card work-large"><div class="work-visual visual-one"><span class="visual-label">BRAND / DIGITAL</span><div class="mock-window"><div class="mock-top">● ● ● <span>goodday.studio</span></div><div class="mock-content"><small>LIVE A LITTLE BETTER</small><b>Find your<br>good day.</b><i>↗</i></div></div></div><div class="work-meta"><div><h3>Goodday — Everyday, elevated.</h3><p>Brand identity · Website design</p></div><span>↗</span></div></article>
+  <article class="work-card"><div class="work-visual visual-two"><span class="visual-label">CAMPAIGN / ART DIRECTION</span><div class="sun-shape"></div><b>LESS<br>ORDINARY.</b><small>THE FUTURE IS OPEN</small></div><div class="work-meta"><div><h3>Open Fields — A new perspective.</h3><p>Creative direction · Campaign</p></div><span>↗</span></div></article></div>
+</section>
+<section class="services-section" id="services"><div class="section-wrap section"><p class="eyebrow">WHAT WE DO · 02</p><div class="section-heading"><h2>Good thinking.<br><em>Great making.</em></h2><p>One connected team to take your idea from “what if?” to “what's next?”</p></div>
+<div class="service-list"><article><span>01</span><div><h3>Brand & strategy</h3><p>Positioning, identity systems, art direction and the story behind your brand.</p></div><b>↗</b></article><article><span>02</span><div><h3>Digital experiences</h3><p>Websites, landing pages and digital products that make every interaction count.</p></div><b>↗</b></article><article><span>03</span><div><h3>Content & campaigns</h3><p>Ideas, visuals and campaigns designed to connect with the right people.</p></div><b>↗</b></article></div></div></section>
+<section class="section-wrap section process" id="process"><p class="eyebrow">HOW WE WORK · 03</p><div class="section-heading"><h2>Clear steps.<br><em>Better outcomes.</em></h2><p>Curious by nature, collaborative by design. Here's how we make progress together.</p></div><div class="steps"><article><span>01 / DISCOVER</span><h3>Ask better questions.</h3><p>We listen, learn and get to the heart of the challenge.</p></article><article><span>02 / CREATE</span><h3>Make it meaningful.</h3><p>We explore ideas, test directions and shape the right solution.</p></article><article><span>03 / LAUNCH</span><h3>Put it in motion.</h3><p>We refine, deliver and help your next chapter take off.</p></article></div></section>
+<section class="contact-section" id="contact"><div class="section-wrap contact-inner"><div><p class="eyebrow">HAVE A GOOD ONE IN MIND?</p><h2>Let's make<br><em>something matter.</em></h2></div><a class="contact-circle" href="mailto:hello@example.com" aria-label="Email NOVA Studio">LET'S<br>TALK <span>↗</span></a></div></section>
+</main><footer class="footer"><a class="brand" href="#top"><span class="brand-mark">N</span>NOVA<span class="brand-light">STUDIO</span></a><span>Independent by nature. Digital by design.</span><span>© <span id="year"></span> NOVA Studio</span></footer>
+<script src="{% static 'landing/js/main.js' %}"></script></body></html>
