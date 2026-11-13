@@ -94,6 +94,28 @@ Users can create, edit, view, and delete personal developer portfolios through a
 
 ---
 
+## 📸 Project Screenshots
+
+### Task 1 – Landing Page
+
+![Landing Page](screenshots/landing-page.png)
+
+### Task 2 – Portfolio Builder
+
+**Portfolio Builder Form**
+
+![Portfolio Builder](screenshots/portfolio-builder.png)
+
+**Generated Portfolio Preview**
+
+![Portfolio Preview](screenshots/portfolio-preview.png)
+
+### Task 3 – THERMO Temperature Converter
+
+![THERMO Temperature Converter](screenshots/thermo-converter.png)
+
+---
+
 ## 🛠️ Technologies Used
 
 | Technology | Purpose |
@@ -152,6 +174,12 @@ OIBSIP_Web_Development/
 │
 ├── media/
 │   └── profile_photos/
+│
+├── screenshots/
+│   ├── landing-page.png
+│   ├── portfolio-builder.png
+│   ├── portfolio-preview.png
+│   └── thermo-converter.png
 │
 ├── manage.py
 ├── requirements.txt
@@ -223,8 +251,6 @@ Visit the following URLs in your browser:
 | Portfolio Builder | http://127.0.0.1:8000/portfolio/ |
 | THERMO Converter | http://127.0.0.1:8000/converter/ |
 
-*These URLs should match the routes configured in `config/urls.py` and the individual app URL files.*
-
 ---
 
 ## 📚 Concepts and Skills Learned
@@ -272,7 +298,6 @@ Visit the following URLs in your browser:
 
 ---
 
-⭐ If you find these projects useful, consider giving this repository a star!
+⭐ If you find these projects useful, consider giving this repository a star on GitHub!
 
 **Developed as part of the OASIS INFOBYTE Web Development Internship.**
-```
