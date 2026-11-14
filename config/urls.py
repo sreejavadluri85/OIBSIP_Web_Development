@@ -11,10 +11,14 @@ urlpatterns = [
     path('', include('landing.urls')),
 
     # Other applications
-    path('landing/', include('landing.urls')),
+    path(
+        'landing/',
+        include('landing.urls', namespace='landing_page')
+    ),
     path('portfolio/', include('portfolio.urls')),
     path('converter/', include('converter.urls')),
 ]
+
 if settings.DEBUG:
     urlpatterns += static(
         settings.MEDIA_URL,

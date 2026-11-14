@@ -1,1 +1,1668 @@
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:#f4f6f3;color:#202720;font-family:'DM Sans',sans-serif;--card:#fff;--muted:#7b8379;--line:#e3e8e1;transition:background .2s,color .2s}body.dark{background:#151b18;color:#edf2e9;--card:#202a24;--muted:#a5b0a4;--line:#364239}.header{height:76px;padding:0 7%;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line)}.brand{font:800 25px Manrope;letter-spacing:-1.5px}.brand span{color:#a4bd55}.header-right{display:flex;align-items:center;gap:22px}.header-right>span{font-size:9px;letter-spacing:1.5px;color:var(--muted);font-weight:700}button{font:inherit;cursor:pointer}#themeToggle{width:37px;height:37px;border:1px solid var(--line);background:var(--card);border-radius:50%;color:inherit;font-size:18px}.shell{width:min(900px,88%);margin:auto}.intro{text-align:center;padding:75px 0 42px}.eyebrow{font-size:9px;letter-spacing:1.7px;font-weight:700;color:var(--muted)}.eyebrow i,.live i{display:inline-block;width:7px;height:7px;border-radius:50%;background:#9ab34d;margin-right:7px}.intro h1{font:800 clamp(45px,6vw,68px)/1.02 Manrope;letter-spacing:-4px;margin:22px 0}.intro h1 em,.formula h2 em{font-style:normal;color:#9ab34d}.intro>p:last-child{max-width:480px;margin:auto;color:var(--muted);font-size:14px;line-height:1.8}.converter-card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:34px;box-shadow:0 20px 60px #23351d0b}.card-top,.results-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px}.card-top>div,.results-head>div{display:flex;align-items:center;gap:12px;font-size:13px}.step{display:grid;place-items:center;width:25px;height:25px;background:#edf3dd;color:#657c2e;border-radius:50%;font-size:10px;font-weight:700}.live{font-size:8px;letter-spacing:1px;color:var(--muted);font-weight:700}.input-row{display:grid;grid-template-columns:1fr 230px;gap:12px}.input-row input,.input-row select{width:100%;height:62px;border:1px solid var(--line);border-radius:6px;background:var(--card);color:inherit;padding:0 18px;font:600 17px Manrope;outline:none}.input-row input:focus,.input-row select:focus{border-color:#9ab34d;box-shadow:0 0 0 3px #9ab34d22}.input-row input::placeholder{color:#aab1a6}.controls{display:flex;align-items:center;gap:20px;margin:17px 0 4px}.convert-btn{border:0;border-radius:5px;background:#242c24;color:white;padding:15px 22px;font-size:12px;font-weight:700}.convert-btn span{color:#d9f36a;margin-left:18px}.reset-btn,.clear-btn{border:0;background:none;color:var(--muted);font-size:11px;font-weight:700}.error{min-height:16px;color:#d35c4f;font-size:11px;margin:8px 0 16px}.results-head{border-top:1px solid var(--line);padding-top:25px;margin-bottom:17px}.results-head>span{font-size:10px;color:var(--muted)}.results-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.result{position:relative;min-height:150px;padding:19px;border-radius:6px;background:#f0f4e8;color:#263321}.result-f{background:#f8eee6;color:#443126}.result-k{background:#eaf0f4;color:#25343d}.result-label{font-size:8px;letter-spacing:1.4px;font-weight:700}.unit-dot{display:inline-block;width:6px;height:6px;background:#94ad4b;border-radius:50%;margin-right:5px}.result-f .unit-dot{background:#d4935e}.result-k .unit-dot{background:#7d9db4}.result strong{display:inline-block;font:800 clamp(23px,3vw,32px) Manrope;letter-spacing:-1.5px;margin-top:24px}.result>small{font-size:11px;font-weight:700;margin-left:3px}.copy{position:absolute;right:14px;bottom:14px;border:0;background:#ffffff80;border-radius:20px;padding:6px 9px;font-size:9px;color:inherit}.temperature-scale{margin-top:30px;padding-top:22px;border-top:1px solid var(--line)}.scale-head{display:flex;justify-content:space-between;gap:15px;font-size:10px}.scale-head span{color:var(--muted)}.scale-track{height:7px;border-radius:20px;background:linear-gradient(90deg,#8db6d5,#a6c879,#f1d16e,#e58b69);margin:23px 0 10px;position:relative}.scale-marker{position:absolute;top:50%;left:20%;width:14px;height:14px;border:3px solid var(--card);background:#222b21;border-radius:50%;transform:translate(-50%,-50%);box-shadow:0 0 0 1px #222b21;transition:left .25s}.scale-labels{display:flex;justify-content:space-between;font-size:9px;font-weight:700}.scale-labels small{font-weight:400;color:var(--muted)}.history{padding:75px 0}.history>div:first-child{display:inline-block}.history h2,.formula h2{font:800 32px Manrope;letter-spacing:-1.5px;margin:10px 0}.clear-btn{float:right;margin-top:35px}.history-list{margin-top:20px}.empty{font-size:12px;color:var(--muted);padding:18px 0}.history-item{display:flex;justify-content:space-between;gap:12px;padding:15px 0;border-bottom:1px solid var(--line);font-size:11px}.history-item span{color:var(--muted)}.formula{display:grid;grid-template-columns:1fr 1fr;gap:40px;padding:35px;background:var(--card);border:1px solid var(--line);border-radius:8px;margin-bottom:80px}.formula h2{font-size:35px}.formula-list p{display:flex;justify-content:space-between;gap:10px;border-bottom:1px solid var(--line);padding:10px 0;font-size:10px}.formula-list code{color:#8fa848}footer{min-height:80px;border-top:1px solid var(--line);padding:18px 7%;display:flex;align-items:center;justify-content:space-between;font-size:10px;color:var(--muted)}footer .brand{color:inherit}footer>a:last-child{font-weight:700;color:inherit}.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}@media(max-width:650px){.header{padding:0 6%}.shell{width:90%}.intro{padding:55px 0 32px}.intro h1{letter-spacing:-3px}.converter-card{padding:22px 17px}.input-row{grid-template-columns:1fr}.input-row input,.input-row select{height:55px}.live{font-size:7px}.results-grid{grid-template-columns:1fr;gap:8px}.result{min-height:105px;padding:15px}.result strong{margin-top:15px}.copy{bottom:15px}.scale-labels{font-size:8px}.scale-labels small{font-size:7px}.formula{grid-template-columns:1fr;padding:22px;gap:12px}.formula h2{font-size:29px}.formula-list p{font-size:9px}footer{gap:12px;flex-wrap:wrap}footer>span{display:none}}@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
+
+/* =========================================
+   THERMO - PROFESSIONAL DARK THEME
+   ========================================= */
+
+:root {
+    --bg: #0b1220;
+    --surface: #111c2e;
+    --surface-soft: #18263b;
+    --surface-hover: #20324a;
+    --text: #e8edf7;
+    --muted: #a2aec2;
+    --line: #293951;
+    --primary: #a78bfa;
+    --primary-dark: #8b70e8;
+    --accent: #5eead4;
+    --accent-dark: #2dd4bf;
+    --danger: #fb7185;
+    --shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+}
+
+body.light-theme {
+    --bg: #f1f5fb;
+    --surface: #ffffff;
+    --surface-soft: #f5f7fc;
+    --surface-hover: #e9eef8;
+    --text: #17243a;
+    --muted: #5e6c82;
+    --line: #dce4ef;
+    --primary: #7554d6;
+    --primary-dark: #6341c2;
+    --accent: #0f9f91;
+    --accent-dark: #0d887d;
+    --danger: #dc4962;
+    --shadow: 0 15px 40px rgba(24, 42, 72, 0.08);
+}
+
+/* RESET */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    background: var(--bg);
+    color: var(--text);
+    font-family: "DM Sans", sans-serif;
+    font-size: 16px;
+    line-height: 1.7;
+    transition: background 0.25s ease, color 0.25s ease;
+}
+
+button,
+input,
+select {
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+a:focus-visible {
+    outline: 3px solid var(--accent);
+    outline-offset: 3px;
+}
+
+/* NAVBAR */
+
+.navbar {
+    width: 100%;
+    background: var(--surface);
+    border-bottom: 1px solid var(--line);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.nav-container {
+    max-width: 1200px;
+    min-height: 76px;
+    padding: 0 28px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-family: "Manrope", sans-serif;
+    font-size: 25px;
+    font-weight: 800;
+    color: var(--text);
+    letter-spacing: -1px;
+}
+
+.brand-icon {
+    width: 34px;
+    height: 34px;
+    display: grid;
+    place-items: center;
+    background: var(--primary);
+    color: #0b1220;
+    border-radius: 10px;
+    font-size: 19px;
+    font-weight: 800;
+}
+
+.brand-dot {
+    color: var(--accent);
+}
+
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+}
+
+.nav-caption {
+    color: var(--muted);
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 1.4px;
+}
+
+.theme-toggle {
+    width: 43px;
+    height: 43px;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    background: var(--surface-soft);
+    color: var(--text);
+    font-size: 21px;
+    transition: 0.2s;
+}
+
+.theme-toggle:hover {
+    background: var(--surface-hover);
+    transform: rotate(10deg);
+}
+
+/* MAIN CONTAINER */
+
+.main-container {
+    max-width: 1100px;
+    padding: 0 25px;
+    margin: auto;
+}
+
+/* HERO */
+
+.hero {
+    text-align: center;
+    padding: 90px 15px 75px;
+}
+
+.eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    color: var(--accent);
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    margin-bottom: 22px;
+}
+
+.eyebrow-dot,
+.live-dot {
+    width: 8px;
+    height: 8px;
+    background: var(--accent);
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.hero h1 {
+    font-family: "Manrope", sans-serif;
+    font-size: clamp(42px, 6vw, 68px);
+    line-height: 1.12;
+    font-weight: 800;
+    letter-spacing: -2.5px;
+    color: var(--text);
+}
+
+.hero h1 span {
+    color: var(--primary);
+}
+
+.hero-description {
+    max-width: 570px;
+    margin: 22px auto 25px;
+    color: var(--muted);
+    font-size: 18px;
+    line-height: 1.8;
+}
+
+.unit-pills {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.unit-pills span {
+    padding: 8px 16px;
+    border: 1px solid var(--line);
+    background: var(--surface);
+    border-radius: 30px;
+    color: var(--text);
+    font-size: 14px;
+    font-weight: 600;
+}
+
+/* SECTION COMMON */
+
+.converter-card,
+.guide-card,
+.history-card {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 22px;
+    box-shadow: var(--shadow);
+}
+
+.converter-card {
+    padding: 36px;
+    margin-bottom: 65px;
+}
+
+.section-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 32px;
+}
+
+.heading-left {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.section-number {
+    min-width: 43px;
+    height: 43px;
+    display: grid;
+    place-items: center;
+    background: rgba(167, 139, 250, 0.15);
+    color: var(--primary);
+    border-radius: 14px;
+    font-weight: 800;
+    font-size: 14px;
+}
+
+.section-heading h2 {
+    font-family: "Manrope", sans-serif;
+    font-size: 23px;
+    font-weight: 800;
+    color: var(--text);
+    line-height: 1.35;
+}
+
+.section-heading p {
+    color: var(--muted);
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+.live-indicator {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--accent);
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    white-space: nowrap;
+}
+
+/* INPUT */
+
+.input-section {
+    margin-bottom: 30px;
+}
+
+.input-section label {
+    display: block;
+    margin-bottom: 11px;
+    color: var(--text);
+    font-size: 15px;
+    font-weight: 700;
+}
+
+.input-row {
+    display: grid;
+    grid-template-columns: 1fr 230px;
+    gap: 12px;
+}
+
+.input-row input,
+.input-row select {
+    width: 100%;
+    min-height: 58px;
+    padding: 0 18px;
+    background: var(--surface-soft);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    color: var(--text);
+    font-size: 17px;
+    outline: none;
+    transition: 0.2s;
+}
+
+.input-row input::placeholder {
+    color: var(--muted);
+    opacity: 0.8;
+}
+
+.input-row input:focus,
+.input-row select:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(167, 139, 250, 0.15);
+}
+
+.input-row select {
+    cursor: pointer;
+}
+
+.input-row select option {
+    background: var(--surface);
+    color: var(--text);
+}
+
+.input-hint {
+    color: var(--muted);
+    font-size: 13px;
+    margin-top: 9px;
+}
+
+.error-message {
+    color: var(--danger);
+    font-size: 14px;
+    font-weight: 600;
+    margin-top: 8px;
+    min-height: 20px;
+}
+
+/* PRESETS */
+
+.presets-section {
+    margin-top: 32px;
+}
+
+.presets-heading {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 17px;
+}
+
+.presets-heading h3 {
+    font-size: 12px;
+    letter-spacing: 1.4px;
+    color: var(--primary);
+    font-weight: 800;
+}
+
+.presets-heading span {
+    color: var(--muted);
+    font-size: 13px;
+}
+
+.preset-list {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 13px;
+}
+
+.preset-btn {
+    min-height: 82px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 3px;
+    padding: 12px 15px;
+    background: var(--surface-soft);
+    border: 1px solid var(--line);
+    border-radius: 13px;
+    color: var(--text);
+    text-align: left;
+    transition: 0.2s;
+}
+
+.preset-btn:hover {
+    border-color: var(--primary);
+    background: var(--surface-hover);
+    transform: translateY(-3px);
+}
+
+.preset-btn span:first-child {
+    color: var(--accent);
+    font-size: 18px;
+}
+
+.preset-btn span:nth-child(2) {
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.preset-btn small {
+    color: var(--muted);
+    font-size: 12px;
+}
+
+/* ACTION BUTTONS */
+
+.action-row {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-top: 30px;
+}
+
+.primary-btn {
+    min-height: 51px;
+    padding: 0 25px;
+    background: var(--accent);
+    color: #071722;
+    border: none;
+    border-radius: 11px;
+    font-size: 15px;
+    font-weight: 800;
+    transition: 0.2s;
+}
+
+.primary-btn span {
+    margin-left: 10px;
+    font-size: 18px;
+}
+
+.primary-btn:hover {
+    background: var(--accent-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 7px 20px rgba(94, 234, 212, 0.16);
+}
+
+.secondary-btn {
+    min-height: 49px;
+    padding: 0 20px;
+    background: transparent;
+    color: var(--muted);
+    border: 1px solid var(--line);
+    border-radius: 11px;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.secondary-btn:hover {
+    background: var(--surface-hover);
+    color: var(--text);
+}
+
+/* RESULTS */
+
+.results-section,
+.guide-section,
+.formula-section,
+.history-section {
+    margin-bottom: 70px;
+}
+
+.results-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+}
+
+.result-card {
+    padding: 25px;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    transition: 0.2s;
+}
+
+.result-card:hover {
+    border-color: var(--primary);
+    transform: translateY(-4px);
+}
+
+.featured-result {
+    border-color: rgba(94, 234, 212, 0.45);
+    background: linear-gradient(
+        145deg,
+        var(--surface),
+        rgba(94, 234, 212, 0.07)
+    );
+}
+
+.result-top {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 22px;
+}
+
+.result-icon {
+    width: 42px;
+    height: 42px;
+    display: grid;
+    place-items: center;
+    border-radius: 12px;
+    font-size: 17px;
+    font-weight: 800;
+}
+
+.celsius-icon {
+    background: rgba(167, 139, 250, 0.16);
+    color: var(--primary);
+}
+
+.fahrenheit-icon {
+    background: rgba(94, 234, 212, 0.13);
+    color: var(--accent);
+}
+
+.kelvin-icon {
+    background: rgba(96, 165, 250, 0.15);
+    color: #60a5fa;
+}
+
+.result-label {
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    color: var(--muted);
+}
+
+.result-card h3 {
+    font-family: "Manrope", sans-serif;
+    font-size: clamp(27px, 3vw, 37px);
+    font-weight: 800;
+    color: var(--text);
+    letter-spacing: -1px;
+    overflow-wrap: anywhere;
+}
+
+.result-card p {
+    color: var(--muted);
+    font-size: 13px;
+    margin: 8px 0 19px;
+}
+
+.copy-btn {
+    padding: 8px 13px;
+    background: var(--surface-soft);
+    color: var(--accent);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.copy-btn:hover {
+    background: var(--surface-hover);
+    border-color: var(--accent);
+}
+
+.copy-all-row {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 20px;
+    color: var(--muted);
+    font-size: 14px;
+}
+
+.text-btn {
+    padding: 7px 10px;
+    background: transparent;
+    border: none;
+    color: var(--accent);
+    font-size: 14px;
+    font-weight: 800;
+}
+
+.text-btn:hover {
+    color: var(--primary);
+}
+
+/* TEMPERATURE GUIDE */
+
+.guide-card {
+    padding: 30px;
+}
+
+.guide-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 27px;
+}
+
+.guide-label {
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    font-weight: 800;
+    color: var(--muted);
+}
+
+.guide-top h3 {
+    font-family: "Manrope", sans-serif;
+    font-size: 24px;
+    margin-top: 6px;
+}
+
+.guide-symbol {
+    font-size: 32px;
+}
+
+.scale-track {
+    height: 13px;
+    position: relative;
+    border-radius: 20px;
+    background: linear-gradient(
+        90deg,
+        #60a5fa 0%,
+        #5eead4 35%,
+        #facc15 65%,
+        #fb7185 100%
+    );
+}
+
+.scale-marker {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translate(-50%, -50%);
+    background: white;
+    border: 4px solid var(--primary);
+    border-radius: 50%;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+    transition: left 0.3s ease;
+}
+
+.scale-labels {
+    display: flex;
+    justify-content: space-between;
+    gap: 8px;
+    margin-top: 15px;
+    color: var(--muted);
+    font-size: 12px;
+}
+
+.reference-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+    margin-top: 18px;
+}
+
+.reference-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 17px;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 13px;
+}
+
+.reference-item > span {
+    font-size: 23px;
+}
+
+.reference-item strong {
+    font-size: 16px;
+    color: var(--text);
+}
+
+.reference-item p {
+    color: var(--muted);
+    font-size: 12px;
+}
+
+/* FORMULAS */
+
+.formula-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+}
+
+.formula-card {
+    padding: 23px;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 15px;
+}
+
+.formula-tag {
+    color: var(--accent);
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.formula-card h3 {
+    margin-top: 12px;
+    font-family: "Manrope", sans-serif;
+    font-size: 18px;
+    color: var(--text);
+}
+
+/* HISTORY */
+
+.history-card {
+    padding: 20px;
+}
+
+.history-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.history-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    padding: 15px;
+    background: var(--surface-soft);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    color: var(--text);
+}
+
+.history-item p {
+    color: var(--muted);
+    font-size: 13px;
+}
+
+.empty-history {
+    padding: 22px;
+    text-align: center;
+    color: var(--muted);
+    font-size: 14px;
+}
+
+/* FOOTER */
+
+.footer {
+    border-top: 1px solid var(--line);
+    background: var(--surface);
+}
+
+.footer-inner {
+    max-width: 1100px;
+    min-height: 100px;
+    padding: 20px 25px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.footer-brand {
+    font-size: 21px;
+}
+
+.footer-brand .brand-icon {
+    width: 29px;
+    height: 29px;
+    font-size: 16px;
+}
+
+.footer-inner p,
+.footer-inner > span {
+    color: var(--muted);
+    font-size: 13px;
+}
+
+/* RESPONSIVE DESIGN */
+
+@media (max-width: 900px) {
+    .preset-list {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .reference-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .results-grid {
+        gap: 12px;
+    }
+
+    .result-card {
+        padding: 19px;
+    }
+}
+
+@media (max-width: 650px) {
+    body {
+        font-size: 15px;
+    }
+
+    .nav-container {
+        min-height: 65px;
+        padding: 0 17px;
+    }
+
+    .brand {
+        font-size: 22px;
+    }
+
+    .nav-caption {
+        display: none;
+    }
+
+    .main-container {
+        padding: 0 16px;
+    }
+
+    .hero {
+        padding: 65px 5px 48px;
+    }
+
+    .hero h1 {
+        font-size: clamp(38px, 11vw, 52px);
+        letter-spacing: -1.8px;
+    }
+
+    .hero-description {
+        font-size: 16px;
+    }
+
+    .converter-card {
+        padding: 23px 17px;
+        margin-bottom: 48px;
+    }
+
+    .section-heading {
+        align-items: flex-start;
+        gap: 12px;
+    }
+
+    .section-heading h2 {
+        font-size: 19px;
+    }
+
+    .section-heading p {
+        font-size: 13px;
+    }
+
+    .section-number {
+        min-width: 37px;
+        height: 37px;
+    }
+
+    .live-indicator {
+        font-size: 9px;
+        letter-spacing: 0.5px;
+    }
+
+    .input-row {
+        grid-template-columns: 1fr;
+    }
+
+    .input-row input,
+    .input-row select {
+        min-height: 54px;
+        font-size: 16px;
+    }
+
+    .preset-list {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .preset-btn {
+        min-height: 85px;
+    }
+
+    .action-row {
+        align-items: stretch;
+    }
+
+    .primary-btn {
+        flex: 1;
+        padding: 0 12px;
+        font-size: 13px;
+    }
+
+    .secondary-btn {
+        padding: 0 15px;
+    }
+
+    .results-section,
+    .guide-section,
+    .formula-section,
+    .history-section {
+        margin-bottom: 48px;
+    }
+
+    .results-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .result-card {
+        padding: 23px;
+    }
+
+    .result-card h3 {
+        font-size: 34px;
+    }
+
+    .copy-all-row {
+        justify-content: flex-start;
+    }
+
+    .guide-card {
+        padding: 22px 17px;
+    }
+
+    .scale-labels {
+        font-size: 10px;
+    }
+
+    .reference-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+    }
+
+    .reference-item {
+        padding: 13px 10px;
+        gap: 8px;
+    }
+
+    .reference-item p {
+        font-size: 11px;
+    }
+
+    .formula-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .formula-card {
+        padding: 20px;
+    }
+
+    .formula-card h3 {
+        font-size: 16px;
+    }
+
+    .footer-inner {
+        flex-direction: column;
+        text-align: center;
+        padding: 25px 15px;
+    }
+}
+
+@media (max-width: 380px) {
+    .hero h1 {
+        font-size: 36px;
+    }
+
+    .section-heading {
+        flex-wrap: wrap;
+    }
+
+    .live-indicator {
+        margin-left: 52px;
+    }
+
+    .reference-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .action-row {
+        flex-direction: column;
+    }
+
+    .primary-btn,
+    .secondary-btn {
+        width: 100%;
+    }
+}
+
+/* =========================================
+   LARGE & READABLE TYPOGRAPHY UPGRADE
+   ========================================= */
+
+/* Overall text */
+body {
+    font-size: 18px;
+    line-height: 1.8;
+}
+
+/* Navbar */
+.brand {
+    font-size: 29px;
+}
+
+.nav-caption {
+    font-size: 14px;
+}
+
+.theme-toggle {
+    width: 48px;
+    height: 48px;
+    font-size: 24px;
+}
+
+/* Hero */
+.hero {
+    padding-top: 100px;
+    padding-bottom: 85px;
+}
+
+.eyebrow {
+    font-size: 15px;
+    letter-spacing: 2px;
+}
+
+.hero h1 {
+    font-size: clamp(55px, 6.5vw, 82px);
+    line-height: 1.2;
+}
+
+.hero-description {
+    font-size: 20px;
+    max-width: 650px;
+}
+
+.unit-pills span {
+    font-size: 16px;
+    padding: 10px 19px;
+}
+
+/* Section headings */
+.section-heading h2 {
+    font-size: 29px;
+}
+
+.section-heading p {
+    font-size: 17px;
+}
+
+.section-number {
+    min-width: 48px;
+    height: 48px;
+    font-size: 17px;
+}
+
+.live-indicator {
+    font-size: 14px;
+}
+
+/* Converter input */
+.input-section label {
+    font-size: 19px;
+}
+
+.input-row input,
+.input-row select {
+    min-height: 66px;
+    font-size: 19px;
+    padding: 0 20px;
+}
+
+.input-hint {
+    font-size: 16px;
+}
+
+.error-message {
+    font-size: 16px;
+}
+
+/* Presets */
+.presets-heading h3 {
+    font-size: 15px;
+}
+
+.presets-heading span {
+    font-size: 16px;
+}
+
+.preset-btn {
+    min-height: 105px;
+    padding: 17px;
+}
+
+.preset-btn span:first-child {
+    font-size: 23px;
+}
+
+.preset-btn span:nth-child(2) {
+    font-size: 17px;
+}
+
+.preset-btn small {
+    font-size: 15px;
+}
+
+/* Buttons */
+.primary-btn {
+    min-height: 59px;
+    padding: 0 30px;
+    font-size: 17px;
+}
+
+.secondary-btn {
+    min-height: 57px;
+    font-size: 16px;
+}
+
+.copy-btn {
+    font-size: 15px;
+    padding: 10px 15px;
+}
+
+.text-btn {
+    font-size: 16px;
+}
+
+/* Results */
+.result-card {
+    padding: 30px;
+}
+
+.result-icon {
+    width: 49px;
+    height: 49px;
+    font-size: 20px;
+}
+
+.result-label {
+    font-size: 14px;
+}
+
+.result-card h3 {
+    font-size: 45px;
+    line-height: 1.3;
+}
+
+.result-card p {
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+/* Temperature guide */
+.guide-label {
+    font-size: 14px;
+}
+
+.guide-top h3 {
+    font-size: 29px;
+}
+
+.scale-labels {
+    font-size: 14px;
+}
+
+.reference-item strong {
+    font-size: 19px;
+}
+
+.reference-item p {
+    font-size: 14px;
+}
+
+/* Formulas */
+.formula-tag {
+    font-size: 14px;
+}
+
+.formula-card h3 {
+    font-size: 21px;
+}
+
+/* History */
+.history-item {
+    font-size: 17px;
+    padding: 19px;
+}
+
+.history-item p,
+.empty-history {
+    font-size: 16px;
+}
+
+/* Footer */
+.footer-brand {
+    font-size: 25px;
+}
+
+.footer-inner p,
+.footer-inner > span {
+    font-size: 15px;
+}
+
+/* Tablet */
+@media (max-width: 900px) {
+    .section-heading h2 {
+        font-size: 25px;
+    }
+
+    .result-card h3 {
+        font-size: 36px;
+    }
+}
+
+/* Mobile */
+@media (max-width: 650px) {
+    body {
+        font-size: 17px;
+    }
+
+    .hero {
+        padding: 65px 5px 50px;
+    }
+
+    .hero h1 {
+        font-size: clamp(43px, 11vw, 58px);
+    }
+
+    .hero-description {
+        font-size: 17px;
+    }
+
+    .section-heading h2 {
+        font-size: 23px;
+    }
+
+    .section-heading p {
+        font-size: 15px;
+    }
+
+    .input-section label {
+        font-size: 18px;
+    }
+
+    .input-row input,
+    .input-row select {
+        font-size: 17px;
+        min-height: 59px;
+    }
+
+    .preset-btn span:nth-child(2) {
+        font-size: 16px;
+    }
+
+    .preset-btn small {
+        font-size: 14px;
+    }
+
+    .primary-btn {
+        font-size: 15px;
+    }
+
+    .result-card h3 {
+        font-size: 39px;
+    }
+
+    .result-card p {
+        font-size: 15px;
+    }
+
+    .result-label {
+        font-size: 13px;
+    }
+
+    .scale-labels {
+        font-size: 11px;
+    }
+
+    .formula-card h3 {
+        font-size: 17px;
+    }
+
+    .footer-inner p,
+    .footer-inner > span {
+        font-size: 14px;
+    }
+}
+
+/* =========================================
+   EXTRA LARGE TYPOGRAPHY - FINAL UPGRADE
+   ========================================= */
+
+/* Main content width */
+.main-container {
+    max-width: 1250px;
+}
+
+/* General text */
+body {
+    font-size: 19px;
+    line-height: 1.85;
+}
+
+/* Navbar */
+.brand {
+    font-size: 32px;
+}
+
+.nav-caption {
+    font-size: 15px;
+}
+
+/* Hero section */
+.hero {
+    padding-top: 115px;
+    padding-bottom: 95px;
+}
+
+.eyebrow {
+    font-size: 16px;
+}
+
+.hero h1 {
+    font-size: clamp(65px, 7vw, 92px);
+    font-weight: 800;
+}
+
+.hero-description {
+    font-size: 22px;
+    max-width: 720px;
+}
+
+.unit-pills span {
+    font-size: 18px;
+    padding: 12px 22px;
+}
+
+/* Section headings */
+.section-heading h2 {
+    font-size: 32px;
+    font-weight: 800;
+}
+
+.section-heading p {
+    font-size: 18px;
+}
+
+.section-number {
+    min-width: 54px;
+    height: 54px;
+    font-size: 19px;
+}
+
+.live-indicator {
+    font-size: 15px;
+}
+
+/* Converter */
+.converter-card {
+    padding: 45px;
+}
+
+.input-section label {
+    font-size: 21px;
+    font-weight: 800;
+}
+
+.input-row {
+    grid-template-columns: 1fr 260px;
+    gap: 16px;
+}
+
+.input-row input,
+.input-row select {
+    min-height: 74px;
+    font-size: 22px;
+    font-weight: 600;
+    padding: 0 24px;
+}
+
+.input-hint,
+.error-message {
+    font-size: 17px;
+}
+
+/* Presets */
+.presets-heading h3 {
+    font-size: 16px;
+}
+
+.presets-heading span {
+    font-size: 18px;
+}
+
+.preset-list {
+    gap: 17px;
+}
+
+.preset-btn {
+    min-height: 125px;
+    padding: 20px;
+}
+
+.preset-btn span:first-child {
+    font-size: 27px;
+}
+
+.preset-btn span:nth-child(2) {
+    font-size: 19px;
+    font-weight: 800;
+}
+
+.preset-btn small {
+    font-size: 17px;
+}
+
+/* Buttons */
+.primary-btn {
+    min-height: 66px;
+    padding: 0 35px;
+    font-size: 19px;
+}
+
+.secondary-btn {
+    min-height: 64px;
+    padding: 0 27px;
+    font-size: 18px;
+}
+
+.copy-btn {
+    font-size: 17px;
+    padding: 12px 18px;
+}
+
+.text-btn {
+    font-size: 18px;
+}
+
+/* Results */
+.results-grid {
+    gap: 22px;
+}
+
+.result-card {
+    padding: 34px;
+    min-height: 265px;
+}
+
+.result-icon {
+    width: 55px;
+    height: 55px;
+    font-size: 23px;
+}
+
+.result-label {
+    font-size: 16px;
+}
+
+.result-card h3 {
+    font-size: 51px;
+    font-weight: 800;
+}
+
+.result-card p {
+    font-size: 18px;
+    margin: 13px 0 22px;
+}
+
+/* Temperature guide */
+.guide-card {
+    padding: 38px;
+}
+
+.guide-label {
+    font-size: 16px;
+}
+
+.guide-top h3 {
+    font-size: 33px;
+}
+
+.scale-track {
+    height: 17px;
+}
+
+.scale-marker {
+    width: 25px;
+    height: 25px;
+}
+
+.scale-labels {
+    font-size: 16px;
+}
+
+.reference-item {
+    padding: 22px;
+}
+
+.reference-item > span {
+    font-size: 29px;
+}
+
+.reference-item strong {
+    font-size: 21px;
+}
+
+.reference-item p {
+    font-size: 16px;
+}
+
+/* Formula cards */
+.formula-card {
+    padding: 28px;
+}
+
+.formula-tag {
+    font-size: 15px;
+}
+
+.formula-card h3 {
+    font-size: 23px;
+}
+
+/* History */
+.history-card {
+    padding: 28px;
+}
+
+.history-item {
+    padding: 21px;
+    font-size: 19px;
+}
+
+.history-item p,
+.empty-history {
+    font-size: 17px;
+}
+
+/* Footer */
+.footer-inner p,
+.footer-inner > span {
+    font-size: 16px;
+}
+
+/* TABLET */
+@media (max-width: 900px) {
+    .main-container {
+        max-width: 100%;
+    }
+
+    .hero h1 {
+        font-size: 65px;
+    }
+
+    .result-card h3 {
+        font-size: 40px;
+    }
+}
+
+/* MOBILE */
+@media (max-width: 650px) {
+    body {
+        font-size: 17px;
+    }
+
+    .hero {
+        padding: 65px 5px 50px;
+    }
+
+    .hero h1 {
+        font-size: clamp(43px, 11vw, 60px);
+    }
+
+    .hero-description {
+        font-size: 17px;
+    }
+
+    .converter-card {
+        padding: 23px 17px;
+    }
+
+    .section-heading h2 {
+        font-size: 24px;
+    }
+
+    .section-heading p {
+        font-size: 15px;
+    }
+
+    .input-row {
+        grid-template-columns: 1fr;
+    }
+
+    .input-row input,
+    .input-row select {
+        min-height: 60px;
+        font-size: 18px;
+    }
+
+    .preset-btn {
+        min-height: 100px;
+    }
+
+    .preset-btn span:nth-child(2) {
+        font-size: 16px;
+    }
+
+    .preset-btn small {
+        font-size: 14px;
+    }
+
+    .primary-btn {
+        font-size: 15px;
+    }
+
+    .results-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .result-card h3 {
+        font-size: 42px;
+    }
+
+    .result-card p {
+        font-size: 16px;
+    }
+
+    .guide-card {
+        padding: 22px 17px;
+    }
+
+    .scale-labels {
+        font-size: 10px;
+    }
+
+    .formula-card h3 {
+        font-size: 17px;
+    }
+}
+

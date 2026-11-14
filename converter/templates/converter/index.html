@@ -1,12 +1,372 @@
+
 {% load static %}
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="Convert temperatures between Celsius, Fahrenheit and Kelvin."><title>Thermo — Temperature Converter</title><link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet"><link rel="stylesheet" href="{% static 'converter/css/style.css' %}"></head>
-<body><header class="header"><a class="brand" href="#">thermo<span>°</span></a><div class="header-right"><span>PRECISION CONVERTER</span><button id="themeToggle" aria-label="Toggle dark theme">☾</button></div></header>
-<main class="shell"><section class="intro"><p class="eyebrow"><i></i> UNIT CONVERSION MADE SIMPLE</p><h1>Temperature,<br><em>translated.</em></h1><p>One value. Three scales. Get accurate Celsius, Fahrenheit and Kelvin conversions in a moment.</p></section>
-<section class="converter-card"><div class="card-top"><div><span class="step">01</span><b>Enter a temperature</b></div><span class="live"><i></i> INSTANT RESULTS</span></div>
-<div class="input-row"><label class="sr-only" for="temperature">Temperature value</label><input id="temperature" type="number" step="any" inputmode="decimal" placeholder="e.g. 25" autocomplete="off"><div class="select-wrap"><label class="sr-only" for="fromUnit">Input unit</label><select id="fromUnit"><option value="C">°C — Celsius</option><option value="F">°F — Fahrenheit</option><option value="K">K — Kelvin</option></select></div></div>
-<div class="controls"><button class="convert-btn" id="convertBtn">Convert temperature <span>↗</span></button><button class="reset-btn" id="resetBtn">Reset</button></div><p class="error" id="error" role="alert"></p>
-<div class="results-head"><div><span class="step">02</span><b>Your conversions</b></div><span id="statusText">Waiting for a value</span></div>
-<div class="results-grid"><article class="result result-c"><div class="result-label"><span class="unit-dot"></span> CELSIUS</div><strong id="celsius">—</strong><small>°C</small><button class="copy" data-copy="celsius" aria-label="Copy Celsius result">Copy</button></article><article class="result result-f"><div class="result-label"><span class="unit-dot"></span> FAHRENHEIT</div><strong id="fahrenheit">—</strong><small>°F</small><button class="copy" data-copy="fahrenheit" aria-label="Copy Fahrenheit result">Copy</button></article><article class="result result-k"><div class="result-label"><span class="unit-dot"></span> KELVIN</div><strong id="kelvin">—</strong><small>K</small><button class="copy" data-copy="kelvin" aria-label="Copy Kelvin result">Copy</button></article></div>
-<div class="temperature-scale"><div class="scale-head"><b>Temperature guide</b><span id="guideLabel">Enter a value to see where it sits</span></div><div class="scale-track"><span class="scale-marker" id="scaleMarker"></span></div><div class="scale-labels"><span>−273.15°C<br><small>Absolute zero</small></span><span>0°C<br><small>Freezing</small></span><span>20°C<br><small>Room temp.</small></span><span>100°C<br><small>Boiling</small></span></div></div>
-</section><section class="history"><div><p class="eyebrow">YOUR RECENT WORK</p><h2>Conversion history</h2></div><button id="clearHistory" class="clear-btn">Clear history ↗</button><div id="historyList" class="history-list"><p class="empty">Your recent conversions will appear here.</p></div></section>
-<section class="formula"><div><p class="eyebrow">UNDER THE HOOD</p><h2>Simple formulas.<br><em>Reliable results.</em></h2></div><div class="formula-list"><p><b>Celsius → Fahrenheit</b><code>(°C × 9/5) + 32</code></p><p><b>Celsius → Kelvin</b><code>°C + 273.15</code></p><p><b>Fahrenheit → Celsius</b><code>(°F − 32) × 5/9</code></p></div></section></main><footer><a class="brand" href="#">thermo<span>°</span></a><span>Built for clarity · © <span id="year"></span></span><a href="/landing/">Explore NOVA Studio ↗</a></footer><script src="{% static 'converter/js/main.js' %}"></script></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="THERMO - A modern Celsius, Fahrenheit and Kelvin temperature converter.">
+    <meta name="theme-color" content="#0b1220">
+
+    <title>THERMO | Temperature Converter</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="{% static 'converter/css/style.css' %}">
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <header class="navbar">
+        <div class="nav-container">
+            <a href="{% url 'converter:home' %}" class="brand">
+                <span class="brand-icon">T</span>
+                <span>thermo<span class="brand-dot">.</span></span>
+            </a>
+
+            <div class="nav-right">
+                <span class="nav-caption">PRECISION TEMPERATURE TOOL</span>
+                <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle theme">
+                    <span id="themeIcon">☀</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="main-container">
+
+        <!-- HERO -->
+        <section class="hero">
+            <div class="eyebrow">
+                <span class="eyebrow-dot"></span>
+                SMART UNIT CONVERSION
+            </div>
+
+            <h1>Temperature,<br><span>made simple.</span></h1>
+
+            <p class="hero-description">
+                Convert between Celsius, Fahrenheit and Kelvin
+                with instant, accurate results.
+            </p>
+
+            <div class="unit-pills">
+                <span>°C Celsius</span>
+                <span>°F Fahrenheit</span>
+                <span>K Kelvin</span>
+            </div>
+        </section>
+
+        <!-- CONVERTER -->
+        <section class="converter-card">
+
+            <div class="section-heading">
+                <div class="heading-left">
+                    <span class="section-number">01</span>
+                    <div>
+                        <h2>Temperature converter</h2>
+                        <p>Enter a value and choose its temperature scale.</p>
+                    </div>
+                </div>
+
+                <span class="live-indicator">
+                    <span class="live-dot"></span>
+                    LIVE CONVERSION
+                </span>
+            </div>
+
+            <div class="input-section">
+                <label for="temperatureInput">Temperature value</label>
+
+                <div class="input-row">
+                    <input
+                        type="number"
+                        id="temperatureInput"
+                        placeholder="Enter temperature..."
+                        step="any"
+                        autocomplete="off"
+                    >
+
+                    <select id="temperatureUnit" aria-label="Select temperature unit">
+                        <option value="celsius">°C — Celsius</option>
+                        <option value="fahrenheit">°F — Fahrenheit</option>
+                        <option value="kelvin">K — Kelvin</option>
+                    </select>
+                </div>
+
+                <p class="input-hint">
+                    Enter a number to convert between all three scales.
+                </p>
+
+                <p class="error-message" id="errorMessage" role="alert"></p>
+            </div>
+
+            <!-- PRESETS -->
+            <div class="presets-section">
+                <div class="presets-heading">
+                    <h3>QUICK PRESETS</h3>
+                    <span>Try a common temperature</span>
+                </div>
+
+                <div class="preset-list">
+                    <button type="button" class="preset-btn" data-value="0">
+                        <span>❄</span>
+                        <span>Freezing</span>
+                        <small>0°C</small>
+                    </button>
+
+                    <button type="button" class="preset-btn" data-value="25">
+                        <span>☀</span>
+                        <span>Room temp.</span>
+                        <small>25°C</small>
+                    </button>
+
+                    <button type="button" class="preset-btn" data-value="37">
+                        <span>♨</span>
+                        <span>Body temp.</span>
+                        <small>37°C</small>
+                    </button>
+
+                    <button type="button" class="preset-btn" data-value="100">
+                        <span>♨</span>
+                        <span>Boiling</span>
+                        <small>100°C</small>
+                    </button>
+                </div>
+            </div>
+
+            <!-- ACTIONS -->
+            <div class="action-row">
+                <button type="button" class="primary-btn" id="convertBtn">
+                    Convert temperature <span>↗</span>
+                </button>
+
+                <button type="button" class="secondary-btn" id="resetBtn">
+                    Reset
+                </button>
+            </div>
+
+        </section>
+
+        <!-- RESULTS -->
+        <section class="results-section">
+
+            <div class="section-heading">
+                <div class="heading-left">
+                    <span class="section-number">02</span>
+                    <div>
+                        <h2>Your results</h2>
+                        <p>Equivalent values in all three temperature scales.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="results-grid">
+
+                <article class="result-card">
+                    <div class="result-top">
+                        <span class="result-icon celsius-icon">°C</span>
+                        <span class="result-label">° CELSIUS</span>
+                    </div>
+
+                    <h3 id="celsiusResult">--</h3>
+                    <p>Metric temperature scale</p>
+
+                    <button type="button" class="copy-btn" data-copy="celsius">
+                        Copy value
+                    </button>
+                </article>
+
+                <article class="result-card featured-result">
+                    <div class="result-top">
+                        <span class="result-icon fahrenheit-icon">°F</span>
+                        <span class="result-label">° FAHRENHEIT</span>
+                    </div>
+
+                    <h3 id="fahrenheitResult">--</h3>
+                    <p>Commonly used in the USA</p>
+
+                    <button type="button" class="copy-btn" data-copy="fahrenheit">
+                        Copy value
+                    </button>
+                </article>
+
+                <article class="result-card">
+                    <div class="result-top">
+                        <span class="result-icon kelvin-icon">K</span>
+                        <span class="result-label">K KELVIN</span>
+                    </div>
+
+                    <h3 id="kelvinResult">--</h3>
+                    <p>Scientific temperature scale</p>
+
+                    <button type="button" class="copy-btn" data-copy="kelvin">
+                        Copy value
+                    </button>
+                </article>
+
+            </div>
+
+            <div class="copy-all-row">
+                <span>Need all three results?</span>
+                <button type="button" class="text-btn" id="copyAllBtn">
+                    Copy all results ↗
+                </button>
+            </div>
+
+        </section>
+
+        <!-- TEMPERATURE GUIDE -->
+        <section class="guide-section">
+
+            <div class="section-heading">
+                <div class="heading-left">
+                    <span class="section-number">03</span>
+                    <div>
+                        <h2>Temperature guide</h2>
+                        <p>Explore common temperature reference points.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="guide-card">
+                <div class="guide-top">
+                    <div>
+                        <span class="guide-label">TEMPERATURE SCALE</span>
+                        <h3 id="scaleValue">Waiting for input</h3>
+                    </div>
+                    <span class="guide-symbol">🌡</span>
+                </div>
+
+                <div class="scale-track">
+                    <div class="scale-marker" id="scaleMarker"></div>
+                </div>
+
+                <div class="scale-labels">
+                    <span>Freezing</span>
+                    <span>Cool</span>
+                    <span>Comfortable</span>
+                    <span>Hot</span>
+                    <span>Boiling</span>
+                </div>
+            </div>
+
+            <div class="reference-grid">
+                <div class="reference-item">
+                    <span>❄</span>
+                    <div>
+                        <strong>0°C</strong>
+                        <p>Water freezes</p>
+                    </div>
+                </div>
+
+                <div class="reference-item">
+                    <span>☀</span>
+                    <div>
+                        <strong>25°C</strong>
+                        <p>Room temperature</p>
+                    </div>
+                </div>
+
+                <div class="reference-item">
+                    <span>♨</span>
+                    <div>
+                        <strong>37°C</strong>
+                        <p>Human body temperature</p>
+                    </div>
+                </div>
+
+                <div class="reference-item">
+                    <span>♨</span>
+                    <div>
+                        <strong>100°C</strong>
+                        <p>Water boils</p>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- FORMULAS -->
+        <section class="formula-section">
+
+            <div class="section-heading">
+                <div class="heading-left">
+                    <span class="section-number">04</span>
+                    <div>
+                        <h2>Conversion formulas</h2>
+                        <p>Understand how each temperature conversion works.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="formula-grid">
+                <div class="formula-card">
+                    <span class="formula-tag">CELSIUS → FAHRENHEIT</span>
+                    <h3>°F = (°C × 9/5) + 32</h3>
+                </div>
+
+                <div class="formula-card">
+                    <span class="formula-tag">FAHRENHEIT → CELSIUS</span>
+                    <h3>°C = (°F − 32) × 5/9</h3>
+                </div>
+
+                <div class="formula-card">
+                    <span class="formula-tag">CELSIUS → KELVIN</span>
+                    <h3>K = °C + 273.15</h3>
+                </div>
+
+                <div class="formula-card">
+                    <span class="formula-tag">KELVIN → CELSIUS</span>
+                    <h3>°C = K − 273.15</h3>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- HISTORY -->
+        <section class="history-section">
+
+            <div class="section-heading">
+                <div class="heading-left">
+                    <span class="section-number">05</span>
+                    <div>
+                        <h2>Recent conversions</h2>
+                        <p>Your recent temperature conversion activity.</p>
+                    </div>
+                </div>
+
+                <button type="button" class="text-btn" id="clearHistoryBtn">
+                    Clear history
+                </button>
+            </div>
+
+            <div class="history-card">
+                <div id="historyList" class="history-list">
+                    <p class="empty-history">Your conversion history will appear here.</p>
+                </div>
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-inner">
+            <a href="{% url 'converter:home' %}" class="brand footer-brand">
+                <span class="brand-icon">T</span>
+                <span>thermo<span class="brand-dot">.</span></span>
+            </a>
+
+            <p>Simple conversions. Accurate results.</p>
+            <span>© 2026 THERMO. Built with Django.</span>
+        </div>
+    </footer>
+
+    <script src="{% static 'converter/js/main.js' %}"></script>
+
+</body>
+</html>
